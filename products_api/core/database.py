@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from pymongo.database import Database
+from pymongo.collection import Collection
 
 from products_api.core.settings import settings
 
@@ -33,6 +34,9 @@ class MongoDB:
 
     def get_db_session(self, database_name: str) -> Database:
         return self.sync_client.get_database(database_name)
+    
+    def get_db_collection(self, database_name: str, collection_name: str) -> Collection:
+        return self.get_db_session(database_name).get_collection(collection_name)
     
     def get_async_db_session(self, database_name: str):
         raise NotImplementedError
