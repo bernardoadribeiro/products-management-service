@@ -8,6 +8,9 @@ class Settings:
     PROJECT_VERSION: str = "0.0.1"
     PROJECT_DESCRIPTION: str = "A simple API to manage products"
 
+    # Security
+    SECRET_KEY: str = os.environ.get("SECRET_KEY")
+
     # Database settings
     MONGODB_HOST: str = os.environ.get("MONGODB_HOST", "mongodb")
     MONGODB_PORT: int = int(os.environ.get("MONGODB_PORT", 27017))

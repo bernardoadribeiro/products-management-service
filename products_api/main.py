@@ -2,6 +2,7 @@ import json
 from flask import Flask, Response
 
 app = Flask(__name__)
+app.secret_key = settings.SECRET_KEY
 
 
 @app.route("/health", methods=["GET"])
